@@ -17,7 +17,7 @@ public class HelloController {
     @GetMapping("/hello")
     public @ResponseBody Map<String,Object> hello(){
         HashMap<String, Object> map = new HashMap<>();
-        map.put("msg","helloSpringboot");
+        map.put("msg","helloSpringboot9999");
         return map;
     }
 
