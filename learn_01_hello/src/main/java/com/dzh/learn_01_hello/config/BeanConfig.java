@@ -1,9 +1,13 @@
 package com.dzh.learn_01_hello.config;
 
+import com.dzh.learn_01_hello.pojo.Car;
 import com.dzh.learn_01_hello.pojo.Pet;
+import com.dzh.learn_01_hello.pojo.TestImport;
 import com.dzh.learn_01_hello.pojo.User;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * @Author 戴志豪
@@ -22,7 +26,9 @@ import org.springframework.context.annotation.Configuration;
  *          当容器中存在大量Bean组件时，会产生很多的组件依赖，此时，多重检查，就会影响效率
  *
  */
+@Import({TestImport.class})
 @Configuration(proxyBeanMethods = true) // 告诉SpringBoot这是一个配置类 == bean.xml 这种配置文件（标注@Configuration注解的本身也是一个组件）
+@EnableConfigurationProperties(Car.class)
 public class BeanConfig {
 
     /**
@@ -31,6 +37,7 @@ public class BeanConfig {
      * @return  返回类型就是组件类型，返回值就是组件在容器中的实例，默认单实例
      */
     @Bean
+//    @ConditionalOnBean(name = "tom")
     public User user01(){
         User zhangsan = new User("zhangsan", 18);
         zhangsan.setPet(pet());

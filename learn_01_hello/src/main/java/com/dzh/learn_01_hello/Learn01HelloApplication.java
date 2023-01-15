@@ -2,6 +2,7 @@ package com.dzh.learn_01_hello;
 
 import com.dzh.learn_01_hello.config.BeanConfig;
 import com.dzh.learn_01_hello.pojo.Pet;
+import com.dzh.learn_01_hello.pojo.Tes1;
 import com.dzh.learn_01_hello.pojo.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,6 +39,12 @@ public class Learn01HelloApplication {
         User user = bean.user01();
         User user1 = bean.user01();
         System.out.println(user==user1);
+
+        Tes1 bean1 = run.getBean(Tes1.class);
+        System.out.println(bean1);
+
+        boolean user0 = run.containsBean("user01");
+        System.out.println(user0);
 
     }
 
